@@ -9,7 +9,12 @@ public class TimeDemo {
 
     //毫秒MILLISECONDS  微妙MICROSECONDS  纳秒NANOSECONDS 之间进制1000
     public static void main(String[] args) {
-        System.out.println(System.currentTimeMillis());//毫秒数
+
+        TimeUtilDemo();
+    }
+
+    private static void TimeUtilDemo() {
+        //System.out.println(System.currentTimeMillis());//毫秒数
 
         /**
          * 纳秒
@@ -25,7 +30,15 @@ public class TimeDemo {
 
         //convert(long duration, TimeUnit unit)的意思将duration这个时间转化为本对象（this）所表示的时间形式。
         //至于duration是哪种形式的时间（MICROSECONDS，MILLISECONDS，NANOSECONDS，SECONDS的一种），则是通过参数TimeUnit unit来确定的
-        System.out.println("1 SECONDS = "+TimeUnit.MILLISECONDS.convert(1, TimeUnit.SECONDS)+" MILLISECONDS");
-        System.out.println("1 MICROSECONDS = "+TimeUnit.NANOSECONDS.convert(1,TimeUnit.MICROSECONDS)+" NANOSECONDS");
+        //System.out.println("1 SECONDS = "+TimeUnit.MILLISECONDS.convert(1, TimeUnit.SECONDS)+" MILLISECONDS");
+        //System.out.println("1 MICROSECONDS = "+TimeUnit.NANOSECONDS.convert(1,TimeUnit.MICROSECONDS)+" NANOSECONDS");
+
+        System.out.println(TimeUnit.MILLISECONDS.toSeconds(2000));//2
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
